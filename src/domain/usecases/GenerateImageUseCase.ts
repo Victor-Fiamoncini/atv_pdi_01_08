@@ -1,7 +1,12 @@
 namespace GenerateImageUseCase {
+	export type Resolution = {
+		width: number
+		height: number
+	}
+
 	export type Params = {
 		filePath: string
-		resolution: number
+		resolution: GenerateImageUseCase.Resolution
 		encoding: string
 	}
 }

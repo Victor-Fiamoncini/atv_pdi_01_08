@@ -11,9 +11,9 @@
     "node": ">=12.20.0"
   },
   "scripts": {
-    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --ignore-watch node_modules --no-notify ./src/main.ts",
+    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --ignore-watch node_modules --no-notify ./src/main/main.ts",
     "build": "babel src --extensions \".js,.ts\" --out-dir build --copy-files --no-copy-ignored",
-    "start": "node ./build/main.js"
+    "start": "node ./build/main/main.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.8",
