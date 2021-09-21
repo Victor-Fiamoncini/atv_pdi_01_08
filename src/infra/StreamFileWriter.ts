@@ -3,10 +3,10 @@ import fs from 'fs'
 import FileWriter from '@app/contracts/FileWriter'
 
 class StreamFileWriter implements FileWriter {
-	async execute(params: FileWriter.Params) {
-		const writeStream = fs.createWriteStream(`${params.path}/${params.name}`)
+	async execute({ path, name, content, encoding }: FileWriter.Params) {
+		const writeStream = fs.createWriteStream(`${path}/${name}`)
 
-		writeStream.write(params.content, params.encoding as BufferEncoding)
+		writeStream.write(content, encoding as BufferEncoding)
 		writeStream.end()
 	}
 }

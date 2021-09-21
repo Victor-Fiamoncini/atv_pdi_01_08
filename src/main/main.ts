@@ -1,22 +1,6 @@
-import path from 'path'
+import GenerateImageUseCaseFactory from '@main/factories/usecases/GenerateImageUseCaseFactory'
 
-import FileContentDrawer from '@app/contracts/FileContentDrawer'
-import FileWriter from '@app/contracts/FileWriter'
-import GenerateImageService from '@app/services/GenerateImageService'
-
-import GenerateImageUseCase from '@domain/usecases/GenerateImageUseCase'
-
-import MemoryFileContentDrawer from '@infra/MemoryFileContentDrawer'
-import StreamFileWriter from '@infra/StreamFileWriter'
-
-const fileContentDrawer: FileContentDrawer = new MemoryFileContentDrawer()
-const fileWriter: FileWriter = new StreamFileWriter()
-
-const generateImageUseCase: GenerateImageUseCase = new GenerateImageService(
-	path.resolve(__dirname, '..', '..', 'tmp'),
-	fileContentDrawer,
-	fileWriter
-)
+const generateImageUseCase = GenerateImageUseCaseFactory.make()
 
 generateImageUseCase.run({
 	name: '100x100.pbm',
