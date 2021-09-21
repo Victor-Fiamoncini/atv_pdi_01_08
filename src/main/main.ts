@@ -1,14 +1,23 @@
-import FileGenerator from '@app/contracts/FileGenerator'
+import path from 'path'
+
+import FileWriter from '@app/contracts/FileWriter'
 import GenerateImageService from '@app/services/GenerateImageService'
 
 import GenerateImageUseCase from '@domain/usecases/GenerateImageUseCase'
 
-import FsFileGenerator from '@infra/FsFileGenerator'
+import StreamFileWriter from '@infra/StreamFileWriter'
 
 // FileNumbersMatrix generator
 // FileHeader Generator
-const fileGenerator: FileGenerator = new FsFileGenerator()
+const streamFileWriter: FileWriter = new StreamFileWriter()
 
 const generateImageUseCase: GenerateImageUseCase = new GenerateImageService(
-	fileGenerator
+	path.resolve(__dirname, '..', '..', 'tmp'),
+	streamFileWriter
 )
+
+generateImageUseCase.run({
+	name: 'test.png',
+	encoding: 'utf-8',
+	resolution: { width: 100, height: 100 },
+})

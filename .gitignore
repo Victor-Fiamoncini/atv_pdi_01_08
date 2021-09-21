@@ -12,6 +12,10 @@
 /build
 /public
 
+# tmp files
+/tmp/*
+!/tmp/.gitkeep
+
 # misc
 .DS_Store
 .env.local

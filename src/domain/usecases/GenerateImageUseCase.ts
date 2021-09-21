@@ -1,12 +1,9 @@
-namespace GenerateImageUseCase {
-	export type Resolution = {
-		width: number
-		height: number
-	}
+import { Resolution } from '@shared/types'
 
+namespace GenerateImageUseCase {
 	export type Params = {
-		filePath: string
-		resolution: GenerateImageUseCase.Resolution
+		name: string
+		resolution: Resolution
 		encoding: string
 	}
 }
