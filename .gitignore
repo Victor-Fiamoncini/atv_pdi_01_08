@@ -14,7 +14,7 @@
 
 # tmp files
 /tmp/*
-!/tmp/.gitkeep
+!tmp/.gitkeep
 
 # misc
 .DS_Store
