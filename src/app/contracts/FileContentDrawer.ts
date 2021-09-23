@@ -1,9 +1,10 @@
-import { Resolution } from '@shared/types'
+import { ImageType, Resolution } from '@shared/types'
 
 namespace FileContentDrawer {
 	export type Params = {
 		name: string
 		resolution: Resolution
+		type: ImageType
 	}
 }
 

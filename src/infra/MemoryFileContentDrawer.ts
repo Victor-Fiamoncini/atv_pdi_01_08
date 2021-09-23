@@ -1,7 +1,9 @@
+import { Resolution } from '@shared/types'
+
 import FileContentDrawer from '@app/contracts/FileContentDrawer'
 
-class MemoryFileContentDrawer implements FileContentDrawer {
-	async execute({ name, resolution }: FileContentDrawer.Params) {
+class PBMMemoryFileContentDrawer implements FileContentDrawer {
+	private drawAscii(name: string, resolution: Resolution) {
 		const type = 'P1\n'
 		const headerComment = `# ${name}\n`
 		const specs = `${resolution.width} ${resolution.height}\n`
@@ -16,7 +18,7 @@ class MemoryFileContentDrawer implements FileContentDrawer {
 
 				line += `${randomPixel} `
 
-				if (x === 23) {
+				if (x === resolution.width - 1) {
 					line.trimRight()
 					line += '\n'
 				}
@@ -27,6 +29,18 @@ class MemoryFileContentDrawer implements FileContentDrawer {
 
 		return type + headerComment + specs + pixelsMatrix
 	}
+
+	private drawBinary(name: string, resolution: Resolution) {
+		return 'binary draw'
+	}
+
+	async execute({ name, resolution, type }: FileContentDrawer.Params) {
+		if (type === 'ascii') {
+			return this.drawAscii(name, resolution)
+		}
+
+		return this.drawBinary(name, resolution)
+	}
 }
 
-export default MemoryFileContentDrawer
+export default PBMMemoryFileContentDrawer
