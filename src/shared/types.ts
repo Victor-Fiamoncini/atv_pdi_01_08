@@ -3,4 +3,4 @@ export type Resolution = {
 	height: number
 }
 
-export type ImageType = 'ascii' | 'binary'
+export type ImageCodeType = 'ascii' | 'binary'

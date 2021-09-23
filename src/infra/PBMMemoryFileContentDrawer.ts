@@ -3,7 +3,7 @@ import { Resolution } from '@shared/types'
 import FileContentDrawer from '@app/contracts/FileContentDrawer'
 
 class PBMMemoryFileContentDrawer implements FileContentDrawer {
-	private drawAscii(name: string, resolution: Resolution) {
+	private drawAsciiType(name: string, resolution: Resolution) {
 		const type = 'P1\n'
 		const headerComment = `# ${name}\n`
 		const specs = `${resolution.width} ${resolution.height}\n`
@@ -30,16 +30,22 @@ class PBMMemoryFileContentDrawer implements FileContentDrawer {
 		return type + headerComment + specs + pixelsMatrix
 	}
 
-	private drawBinary(name: string, resolution: Resolution) {
-		return 'binary draw'
+	private drawBinaryType(name: string, resolution: Resolution) {
+		const type = 'P4\n'
+		const headerComment = `# ${name}\n`
+		const specs = `${resolution.width} ${resolution.height}\n`
+
+		const body = '00000079E79E41041271C71E41041041E790000000'
+
+		return type + headerComment + specs + body
 	}
 
-	async execute({ name, resolution, type }: FileContentDrawer.Params) {
-		if (type === 'ascii') {
-			return this.drawAscii(name, resolution)
+	async execute({ name, resolution, codeType }: FileContentDrawer.Params) {
+		if (codeType === 'ascii') {
+			return this.drawAsciiType(name, resolution)
 		}
 
-		return this.drawBinary(name, resolution)
+		return this.drawBinaryType(name, resolution)
 	}
 }
 
