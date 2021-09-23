@@ -21,7 +21,7 @@ async function main() {
 
 			generateImageUseCase.run({
 				name: '1000x1000-binary.pbm',
-				encoding: 'ascii',
+				encoding: 'binary',
 				resolution: { width: 1000, height: 1000 },
 				codeType: 'binary',
 			}),

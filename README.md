@@ -26,7 +26,7 @@ $ npm run build # compila o projeto para javascript
 $ npm run start # executa o arquivo /build/src/main/main.js (raiz do programa)
 ```
 
-Pós executado, o programa irá criar dois arquivos (100x100.pbm e 1000x1000.pbm) na pasta /tmp (mesmo nível de diretório deste arquivo README.md)
+Pós executado, o programa irá criar dois arquivos (100x100-ascii.pbm, 1000x1000-ascii.pbm e 1000x1000-binary.pbm) na pasta /tmp (mesmo nível de diretório deste arquivo README.md)
 
 ----------
 By [Victor B. Fiamoncini](https://github.com/Victor-Fiamoncini) ☕️
