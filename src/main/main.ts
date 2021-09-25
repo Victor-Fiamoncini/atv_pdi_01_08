@@ -26,6 +26,10 @@ async function main() {
 				codeType: 'binary',
 			}),
 		])
+
+		console.log(
+			'Gerou os arquivos 100x100-ascii.pbm, 1000x1000-ascii.pbm e 1000x1000-binary.pbm em /tmp'
+		)
 	} catch (err) {
 		console.log((err as Error).message)
 	}
