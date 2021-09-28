@@ -1,13 +1,10 @@
-import path from 'path'
+import { resolve } from 'path'
 
 class Env {
-	static readonly DEFAULT_FILE_PATH = path.resolve(
-		__dirname,
-		'..',
-		'..',
-		'..',
-		'tmp'
-	)
+	private static readonly ROOT_PATH = resolve(__dirname, '..', '..', '..')
+
+	static readonly DEFAULT_TMP_PATH = resolve(this.ROOT_PATH, 'tmp')
+	static readonly DEFAULT_SAMPLES_PATH = resolve(this.ROOT_PATH, 'samples')
 }
 
 export default Env

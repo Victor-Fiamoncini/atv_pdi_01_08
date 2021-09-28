@@ -13,7 +13,7 @@ class GenerateImageUseCaseFactory {
 		const fileWriter = new StreamFileWriter()
 
 		return new GenerateImageService(
-			Env.DEFAULT_FILE_PATH,
+			Env.DEFAULT_TMP_PATH,
 			fileContentDrawer,
 			fileWriter
 		)
