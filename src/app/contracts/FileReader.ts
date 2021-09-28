@@ -7,7 +7,7 @@ namespace FileReader {
 }
 
 interface FileReader {
-	execute(params: FileReader.Params): Promise<Blob>
+	execute(params: FileReader.Params): Promise<string>
 }
 
 export default FileReader
