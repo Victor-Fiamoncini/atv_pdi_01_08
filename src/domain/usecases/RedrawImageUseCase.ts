@@ -2,7 +2,8 @@ import { ImageCodeType } from '@shared/types'
 
 namespace RedrawImageUseCase {
 	export type Params = {
-		name: string
+		inputFileName: string
+		outputFileName: string
 		encoding: string
 		codeType: ImageCodeType
 	}

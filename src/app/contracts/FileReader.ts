@@ -4,10 +4,15 @@ namespace FileReader {
 		name: string
 		encoding: string
 	}
+
+	export type Return = {
+		header: string
+		content: string
+	}
 }
 
 interface FileReader {
-	execute(params: FileReader.Params): Promise<string>
+	execute(params: FileReader.Params): Promise<FileReader.Return>
 }
 
 export default FileReader

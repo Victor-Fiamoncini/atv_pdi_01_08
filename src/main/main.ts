@@ -1,37 +1,17 @@
-import GenerateImageUseCaseFactory from '@main/factories/usecases/GenerateImageUseCaseFactory'
+import RedrawImageUseCaseFactory from '@main/factories/usecases/RedrawImageUseCaseFactory'
 
 async function main() {
-	const generateImageUseCase = GenerateImageUseCaseFactory.make()
+	const redrawImageUseCase = RedrawImageUseCaseFactory.make()
 
 	try {
-		await Promise.all([
-			generateImageUseCase.run({
-				name: '100x100-ascii.pbm',
-				encoding: 'ascii',
-				resolution: { width: 100, height: 100 },
-				codeType: 'ascii',
-			}),
-
-			generateImageUseCase.run({
-				name: '1000x1000-ascii.pbm',
-				encoding: 'ascii',
-				resolution: { width: 1000, height: 1000 },
-				codeType: 'ascii',
-			}),
-
-			generateImageUseCase.run({
-				name: '1000x1000-binary.pbm',
-				encoding: 'binary',
-				resolution: { width: 1000, height: 1000 },
-				codeType: 'binary',
-			}),
-		])
-
-		console.log(
-			'Gerou os arquivos 100x100-ascii.pbm, 1000x1000-ascii.pbm e 1000x1000-binary.pbm em /tmp'
-		)
+		await redrawImageUseCase.run({
+			codeType: 'ascii',
+			encoding: 'ascii',
+			inputFileName: 'entradaBinario.pgm',
+			outputFileName: 'entradaBinario2.pgm',
+		})
 	} catch (err) {
-		console.log((err as Error).message)
+		console.error(err)
 	}
 }
 
