@@ -1,15 +1,15 @@
 import RedrawImageService from '@app/services/RedrawImageService'
 
-import RedrawImageUseCase from '@domain/usecases/RedrawImageUseCase'
-
 import PBMTwoShadesMemoryFileContentRedrawer from '@infra/PBMTwoShadesMemoryFileContentRedrawer'
 import PromisesFileReader from '@infra/PromisesFileReader'
 import StreamFileWriter from '@infra/StreamFileWriter'
 
+import RedrawImageUseCaseAbstractFactory from '@main/abstract_factories/usecases/RedrawImageUseCaseAbstractFactory'
 import Env from '@main/config/Env'
 
-class RedrawImageUseCaseFactory {
-	static make(): RedrawImageUseCase {
+// prettier-ignore
+class TwoShadesRedrawImageUseCaseFactory implements RedrawImageUseCaseAbstractFactory {
+	make() {
 		const fileContentRedrawer = new PBMTwoShadesMemoryFileContentRedrawer()
 		const fileReader = new PromisesFileReader()
 		const fileWriter = new StreamFileWriter()
@@ -24,4 +24,4 @@ class RedrawImageUseCaseFactory {
 	}
 }
 
-export default RedrawImageUseCaseFactory
+export default TwoShadesRedrawImageUseCaseFactory

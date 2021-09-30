@@ -1,10 +1,11 @@
-import RedrawImageUseCaseFactory from '@main/factories/usecases/RedrawImageUseCaseFactory'
+import TwoShadesRedrawImageUseCaseFactory from '@main/factories/usecases/TwoShadesRedrawImageUseCaseFactory'
 
 async function main() {
-	const redrawImageUseCase = RedrawImageUseCaseFactory.make()
+	const twoShadesRedrawImageUseCase =
+		new TwoShadesRedrawImageUseCaseFactory().make()
 
 	try {
-		await redrawImageUseCase.run({
+		await twoShadesRedrawImageUseCase.run({
 			encoding: 'ascii',
 			outputFileExtension: 'pbm',
 			inputFileName: 'entradaBinario.pgm',
