@@ -11,5 +11,5 @@ Trabalhando com arquivos de Imagens no formato “Portable Bitmap - PBM”
 
 Sobre o arquivo de Imagem “EntradaBinario.pgm” (8 bits em escala de cinza, 0-255), gerar arquivo de saída binário, tipo PBM –P1(ASCII), ou seja, com duas tonalidades (preto ou branco):
 
-a) Definir limiar (fator de ajuste, lembrando que , se valorpixel <= limiar := 0 e valorpixel > limiar := 1;
-b) Aplicar negativo (sobre a Imagem gerada no ítem “I”. Manter formato P2;
+a) ✅ Definir limiar (fator de ajuste, lembrando que , se valorpixel <= limiar := 0 e valorpixel > limiar := 1;
+b) ✅ Aplicar negativo (sobre a Imagem gerada no ítem “I”. Manter formato P2;
