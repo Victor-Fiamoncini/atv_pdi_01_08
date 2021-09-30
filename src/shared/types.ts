@@ -3,4 +3,11 @@ export type Resolution = {
 	height: number
 }
 
-export type ImageCodeType = 'ascii' | 'binary'
+export type Encoding = 'ascii' | 'binary'
+
+export type Extension = 'pbm' | 'pgm'
+
+export type File = {
+	header: string
+	content: string
+}

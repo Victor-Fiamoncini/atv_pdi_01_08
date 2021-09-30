@@ -1,11 +1,10 @@
-import { ImageCodeType, Resolution } from '@shared/types'
+import { Encoding, Resolution } from '@shared/types'
 
 namespace GenerateImageUseCase {
 	export type Params = {
+		encoding: Encoding
 		name: string
 		resolution: Resolution
-		encoding: string
-		codeType: ImageCodeType
 	}
 }
 

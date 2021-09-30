@@ -17,8 +17,8 @@ class RedrawImageUseCaseFactory {
 		return new RedrawImageService(
 			Env.DEFAULT_SAMPLES_PATH,
 			Env.DEFAULT_TMP_PATH,
-			fileContentRedrawer,
 			fileReader,
+			fileContentRedrawer,
 			fileWriter
 		)
 	}

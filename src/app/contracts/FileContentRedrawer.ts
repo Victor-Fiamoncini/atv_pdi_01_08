@@ -1,19 +1,13 @@
-import { ImageCodeType } from '@shared/types'
+import { Encoding, Extension, File } from '@shared/types'
 
 namespace FileContentRedrawer {
 	export type Params = {
-		name: string
-		file: {
-			header: string
-			content: string
-		}
-		codeType: ImageCodeType
+		encoding: Encoding
+		extension: Extension
+		file: File
 	}
 
-	export type Return = {
-		header: string
-		content: string
-	}
+	export type Return = File
 }
 
 interface FileContentRedrawer {

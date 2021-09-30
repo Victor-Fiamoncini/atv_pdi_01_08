@@ -1,9 +1,11 @@
+import { Encoding } from '@shared/types'
+
 namespace FileWriter {
 	export type Params = {
 		path: string
 		name: string
 		content: string
-		encoding: string
+		encoding: Encoding
 	}
 }
 

@@ -1,8 +1,10 @@
+import { Encoding } from '@shared/types'
+
 namespace FileReader {
 	export type Params = {
 		path: string
 		name: string
-		encoding: string
+		encoding: Encoding
 	}
 
 	export type Return = {

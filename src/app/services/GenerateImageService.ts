@@ -11,17 +11,12 @@ class GenerateImageService implements GenerateImageUseCase {
 		private readonly fileWriter: FileWriter
 	) {}
 
-	async run({
-		name,
-		encoding,
-		resolution,
-		codeType,
-	}: GenerateImageUseCase.Params) {
+	async run({ encoding, name, resolution }: GenerateImageUseCase.Params) {
 		try {
 			const content = await this.fileContentDrawer.execute({
 				name,
 				resolution,
-				codeType,
+				encoding,
 			})
 
 			await this.fileWriter.execute({

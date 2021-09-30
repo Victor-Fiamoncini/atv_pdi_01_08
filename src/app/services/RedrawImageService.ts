@@ -11,16 +11,16 @@ class RedrawImageService implements RedrawImageUseCase {
 	constructor(
 		private readonly inputFilePath: string,
 		private readonly outputFilePath: string,
-		private readonly fileContentRedrawer: FileContentRedrawer,
 		private readonly fileReader: FileReader,
+		private readonly fileContentRedrawer: FileContentRedrawer,
 		private readonly fileWriter: FileWriter
 	) {}
 
 	async run({
+		encoding,
 		inputFileName,
 		outputFileName,
-		encoding,
-		codeType,
+		outputFileExtension,
 	}: RedrawImageUseCase.Params) {
 		try {
 			const fileContent = await this.fileReader.execute({
@@ -37,9 +37,12 @@ class RedrawImageService implements RedrawImageUseCase {
 			}
 
 			const redrawedContent = await this.fileContentRedrawer.execute({
-				name: inputFileName,
-				codeType,
-				file: fileContent,
+				encoding,
+				extension: outputFileExtension,
+				file: {
+					header: fileContent.header,
+					content: fileContent.content,
+				},
 			})
 
 			if (

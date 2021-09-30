@@ -1,10 +1,10 @@
-import { ImageCodeType, Resolution } from '@shared/types'
+import { Encoding, Resolution } from '@shared/types'
 
 namespace FileContentDrawer {
 	export type Params = {
+		encoding: Encoding
 		name: string
 		resolution: Resolution
-		codeType: ImageCodeType
 	}
 }
 

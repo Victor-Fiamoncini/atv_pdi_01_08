@@ -5,10 +5,10 @@ async function main() {
 
 	try {
 		await redrawImageUseCase.run({
-			codeType: 'ascii',
 			encoding: 'ascii',
+			outputFileExtension: 'pbm',
 			inputFileName: 'entradaBinario.pgm',
-			outputFileName: 'entradaBinario2.pgm',
+			outputFileName: 'entradaBinario.pbm',
 		})
 	} catch (err) {
 		console.error(err)

@@ -49,8 +49,8 @@ class PBMMemoryFileContentDrawer implements FileContentDrawer {
 		return type + specs + body
 	}
 
-	async execute({ name, resolution, codeType }: FileContentDrawer.Params) {
-		if (codeType === 'ascii') {
+	async execute({ encoding, name, resolution }: FileContentDrawer.Params) {
+		if (encoding === 'ascii') {
 			return this.drawAsciiType(name, resolution)
 		}
 

@@ -6,7 +6,7 @@ class StreamFileWriter implements FileWriter {
 	async execute({ path, name, content, encoding }: FileWriter.Params) {
 		const writeStream = createWriteStream(`${path}/${name}`)
 
-		writeStream.write(content, encoding as BufferEncoding)
+		writeStream.write(content, encoding)
 		writeStream.end()
 	}
 }

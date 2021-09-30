@@ -1,11 +1,11 @@
-import { ImageCodeType } from '@shared/types'
+import { Encoding, Extension } from '@shared/types'
 
 namespace RedrawImageUseCase {
 	export type Params = {
+		encoding: Encoding
 		inputFileName: string
 		outputFileName: string
-		encoding: string
-		codeType: ImageCodeType
+		outputFileExtension: Extension
 	}
 }
 
