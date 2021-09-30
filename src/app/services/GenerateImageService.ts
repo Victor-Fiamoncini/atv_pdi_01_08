@@ -1,5 +1,6 @@
 import FileContentDrawer from '@app/contracts/FileContentDrawer'
 import FileWriter from '@app/contracts/FileWriter'
+import DrawFileContentError from '@app/errors/DrawFileContentError'
 
 import GenerateImageUnexpectedError from '@domain/errors/GenerateImageUnexpectedError'
 import GenerateImageUseCase from '@domain/usecases/GenerateImageUseCase'
@@ -18,6 +19,8 @@ class GenerateImageService implements GenerateImageUseCase {
 				resolution,
 				encoding,
 			})
+
+			if (typeof content !== 'string') throw new DrawFileContentError()
 
 			await this.fileWriter.execute({
 				path: this.filePath,
