@@ -1,4 +1,4 @@
-import { Encoding } from '@shared/types'
+import { Encoding, File } from '@shared/types'
 
 namespace FileReader {
 	export type Params = {
@@ -7,10 +7,7 @@ namespace FileReader {
 		encoding: Encoding
 	}
 
-	export type Return = {
-		header: string
-		content: string
-	}
+	export type Return = File
 }
 
 interface FileReader {

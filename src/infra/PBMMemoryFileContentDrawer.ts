@@ -2,6 +2,8 @@ import { Resolution } from '@shared/types'
 
 import FileContentDrawer from '@app/contracts/FileContentDrawer'
 
+import InvalidFileTypeError from '@infra/errors/InvalidFileTypeError'
+
 class PBMMemoryFileContentDrawer implements FileContentDrawer {
 	private readonly hexCodes = ['000000', 'FFFFFF']
 
@@ -54,7 +56,11 @@ class PBMMemoryFileContentDrawer implements FileContentDrawer {
 			return this.drawAsciiType(name, resolution)
 		}
 
-		return this.drawBinaryType(resolution)
+		if (encoding === 'binary') {
+			return this.drawBinaryType(resolution)
+		}
+
+		throw new InvalidFileTypeError()
 	}
 }
 
