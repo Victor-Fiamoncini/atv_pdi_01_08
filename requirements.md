@@ -22,9 +22,9 @@ Sobre o arquivo de Imagem “EntradaBinario.pgm” (8 bits em escala de cinza, 0
 
 ## Atividades 4
 
-- Converter de Imagem “Entrada.pgm” (8 bits escala de cinza, 0-255) em 5 bits de intensidade.
+- ✅ Converter de Imagem “Entrada.pgm” (8 bits escala de cinza, 0-255) em 5 bits de intensidade.
 
-Obs: Lembre que 8 bits querem dizer que os valores variam de 0 a 255, e 5 bits os valores variam de 0 a 31, o seja precisa ser desenvolvido um fator de conversão.
+✅ Obs: Lembre que 8 bits querem dizer que os valores variam de 0 a 255, e 5 bits os valores variam de 0 a 31, o seja precisa ser desenvolvido um fator de conversão.
 
 ## Atividades 5
 
