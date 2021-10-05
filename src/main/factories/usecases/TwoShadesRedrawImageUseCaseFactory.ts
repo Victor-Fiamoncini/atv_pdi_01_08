@@ -1,6 +1,6 @@
 import RedrawImageService from '@app/services/RedrawImageService'
 
-import PBMTwoShadesMemoryFileContentRedrawer from '@infra/PBMTwoShadesMemoryFileContentRedrawer'
+import PGMTwoShadesMemoryFileContentRedrawer from '@infra/PGMTwoShadesMemoryFileContentRedrawer'
 import PromisesFileReader from '@infra/PromisesFileReader'
 import StreamFileWriter from '@infra/StreamFileWriter'
 
@@ -10,7 +10,7 @@ import Env from '@main/config/Env'
 // prettier-ignore
 class TwoShadesRedrawImageUseCaseFactory implements RedrawImageUseCaseAbstractFactory {
 	make() {
-		const fileContentRedrawer = new PBMTwoShadesMemoryFileContentRedrawer()
+		const fileContentRedrawer = new PGMTwoShadesMemoryFileContentRedrawer()
 		const fileReader = new PromisesFileReader()
 		const fileWriter = new StreamFileWriter()
 

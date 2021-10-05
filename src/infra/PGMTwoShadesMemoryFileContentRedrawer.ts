@@ -4,18 +4,16 @@ import FileContentRedrawer from '@app/contracts/FileContentRedrawer'
 
 import InvalidFileTypeError from '@infra/errors/InvalidFileTypeError'
 
-class PBMTwoShadesMemoryFileContentRedrawer implements FileContentRedrawer {
+class PGMTwoShadesMemoryFileContentRedrawer implements FileContentRedrawer {
 	private readonly threshold = 128
-	private readonly firstPixel = 1
+	private readonly firstPixel = 255
 	private readonly secondPixel = 0
 
 	private redrawAsciiType(file: File) {
 		const lines = file.content.split('\n')
 
-		let redrawedHeader = file.header
+		const redrawedHeader = file.header
 		let redrawedContent = ''
-
-		redrawedHeader = redrawedHeader.replace('P2', 'P1')
 
 		lines.forEach(line => {
 			const parsedLine = Number(line)
@@ -36,7 +34,7 @@ class PBMTwoShadesMemoryFileContentRedrawer implements FileContentRedrawer {
 	}
 
 	async execute({ encoding, extension, file }: FileContentRedrawer.Params) {
-		if (encoding === 'ascii' && extension === 'pbm') {
+		if (encoding === 'ascii' && extension === 'pgm') {
 			const { redrawedHeader, redrawedContent } = this.redrawAsciiType(file)
 
 			return {
@@ -49,4 +47,4 @@ class PBMTwoShadesMemoryFileContentRedrawer implements FileContentRedrawer {
 	}
 }
 
-export default PBMTwoShadesMemoryFileContentRedrawer
+export default PGMTwoShadesMemoryFileContentRedrawer
