@@ -28,7 +28,7 @@ Sobre o arquivo de Imagem “EntradaBinario.pgm” (8 bits em escala de cinza, 0
 
 ## Atividades 5
 
-Aplicar ganho de 20% de claridade a imagem gerada na “atividade 04”.
+✅ Aplicar ganho de 20% de claridade a imagem gerada na “atividade 04”.
 
 ## Atividade 6
 
