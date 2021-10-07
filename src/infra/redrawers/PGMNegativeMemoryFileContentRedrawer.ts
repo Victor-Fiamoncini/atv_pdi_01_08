@@ -2,7 +2,7 @@ import { File } from '@shared/types'
 
 import FileContentRedrawer from '@app/contracts/FileContentRedrawer'
 
-import InvalidFileTypeError from '@infra/errors/InvalidFileTypeError'
+import InvalidFileEncodingError from '@infra/errors/InvalidFileEncodingError'
 
 class PGMNegativeMemoryFileContentRedrawer implements FileContentRedrawer {
 	private redrawAsciiType(file: File) {
@@ -31,8 +31,8 @@ class PGMNegativeMemoryFileContentRedrawer implements FileContentRedrawer {
 		}
 	}
 
-	async execute({ encoding, extension, file }: FileContentRedrawer.Params) {
-		if (encoding === 'ascii' && extension === 'pgm') {
+	async execute({ encoding, file }: FileContentRedrawer.Params) {
+		if (encoding === 'ascii') {
 			const { redrawedHeader, redrawedContent } = this.redrawAsciiType(file)
 
 			return {
@@ -41,7 +41,7 @@ class PGMNegativeMemoryFileContentRedrawer implements FileContentRedrawer {
 			}
 		}
 
-		throw new InvalidFileTypeError()
+		throw new InvalidFileEncodingError()
 	}
 }
 

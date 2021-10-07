@@ -1,9 +1,8 @@
-import { Encoding, Extension, File } from '@shared/types'
+import { Encoding, File } from '@shared/types'
 
 namespace FileContentRedrawer {
 	export type Params = {
 		encoding: Encoding
-		extension: Extension
 		file: File
 	}
 

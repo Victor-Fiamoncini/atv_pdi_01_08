@@ -20,7 +20,6 @@ class RedrawImageService implements RedrawImageUseCase {
 		encoding,
 		inputFileName,
 		outputFileName,
-		outputFileExtension,
 	}: RedrawImageUseCase.Params) {
 		try {
 			const fileContent = await this.fileReader.execute({
@@ -38,7 +37,6 @@ class RedrawImageService implements RedrawImageUseCase {
 
 			const redrawedContent = await this.fileContentRedrawer.execute({
 				encoding,
-				extension: outputFileExtension,
 				file: {
 					header: fileContent.header,
 					content: fileContent.content,

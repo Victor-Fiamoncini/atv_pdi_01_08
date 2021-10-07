@@ -2,7 +2,7 @@ import { File } from '@shared/types'
 
 import FileContentRedrawer from '@app/contracts/FileContentRedrawer'
 
-import InvalidFileTypeError from '@infra/errors/InvalidFileTypeError'
+import InvalidFileEncodingError from '@infra/errors/InvalidFileEncodingError'
 
 class PBMTwoShadesMemoryFileContentRedrawer implements FileContentRedrawer {
 	private readonly threshold = 128
@@ -35,8 +35,8 @@ class PBMTwoShadesMemoryFileContentRedrawer implements FileContentRedrawer {
 		}
 	}
 
-	async execute({ encoding, extension, file }: FileContentRedrawer.Params) {
-		if (encoding === 'ascii' && extension === 'pbm') {
+	async execute({ encoding, file }: FileContentRedrawer.Params) {
+		if (encoding === 'ascii') {
 			const { redrawedHeader, redrawedContent } = this.redrawAsciiType(file)
 
 			return {
@@ -45,7 +45,7 @@ class PBMTwoShadesMemoryFileContentRedrawer implements FileContentRedrawer {
 			}
 		}
 
-		throw new InvalidFileTypeError()
+		throw new InvalidFileEncodingError()
 	}
 }
 

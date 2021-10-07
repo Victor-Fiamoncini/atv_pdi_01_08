@@ -2,10 +2,10 @@ import { Resolution } from '@shared/types'
 
 import FileContentDrawer from '@app/contracts/FileContentDrawer'
 
-import InvalidFileTypeError from '@infra/errors/InvalidFileTypeError'
+import InvalidFileEncodingError from '@infra/errors/InvalidFileEncodingError'
 
 class PBMMemoryFileContentDrawer implements FileContentDrawer {
-	private readonly hexCodes = ['000000', 'FFFFFF']
+	private readonly colorHexCodes = ['000000', 'FFFFFF']
 
 	private drawAsciiType(name: string, resolution: Resolution) {
 		const type = 'P1\n'
@@ -44,7 +44,7 @@ class PBMMemoryFileContentDrawer implements FileContentDrawer {
 			for (let x = 0; x < resolution.width; x++) {
 				const randomHexIndex = Math.round(Math.random())
 
-				body += this.hexCodes[randomHexIndex]
+				body += this.colorHexCodes[randomHexIndex]
 			}
 		}
 
@@ -60,7 +60,7 @@ class PBMMemoryFileContentDrawer implements FileContentDrawer {
 			return this.drawBinaryType(resolution)
 		}
 
-		throw new InvalidFileTypeError()
+		throw new InvalidFileEncodingError()
 	}
 }
 

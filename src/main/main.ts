@@ -7,7 +7,6 @@ async function main() {
 	try {
 		await twoShadesRedrawImageUseCase.run({
 			encoding: 'ascii',
-			outputFileExtension: 'pgm',
 			inputFileName: 'entradaBinario.pgm',
 			outputFileName: 'entradaBinarioRedesenhado.pgm',
 		})

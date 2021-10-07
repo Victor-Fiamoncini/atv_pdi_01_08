@@ -5,7 +5,6 @@ namespace RedrawImageUseCase {
 		encoding: Encoding
 		inputFileName: string
 		outputFileName: string
-		outputFileExtension: Extension
 	}
 }
 

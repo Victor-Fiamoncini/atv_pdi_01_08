@@ -1,8 +1,8 @@
 import RedrawImageService from '@app/services/RedrawImageService'
 
-import PGMTwoShadesMemoryFileContentRedrawer from '@infra/PGMTwoShadesMemoryFileContentRedrawer'
-import PromisesFileReader from '@infra/PromisesFileReader'
-import StreamFileWriter from '@infra/StreamFileWriter'
+import PromisesFileReader from '@infra/readers/PromisesFileReader'
+import PGMTwoShadesMemoryFileContentRedrawer from '@infra/redrawers/PGMTwoShadesMemoryFileContentRedrawer'
+import StreamFileWriter from '@infra/writers/StreamFileWriter'
 
 import RedrawImageUseCaseAbstractFactory from '@main/abstract_factories/usecases/RedrawImageUseCaseAbstractFactory'
 import Env from '@main/config/Env'
