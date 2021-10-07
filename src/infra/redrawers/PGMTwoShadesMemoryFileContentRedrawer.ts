@@ -29,9 +29,9 @@ class PGMTwoShadesMemoryFileContentRedrawer implements FileContentRedrawer {
 
 			if (Number.isInteger(parsedLine)) {
 				if (parsedLine > this.threshold) {
-					redrawedContent += firstPixel + ' '
+					redrawedContent += `${firstPixel}\n`
 				} else {
-					redrawedContent += secondPixel + ' '
+					redrawedContent += `${secondPixel}\n`
 				}
 			}
 		})

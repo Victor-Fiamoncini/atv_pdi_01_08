@@ -15,7 +15,9 @@ class PGMBrightenerMemoryFileContentRedrawer implements FileContentRedrawer {
 		lines.forEach(line => {
 			const parsedLine = Number(line)
 
-			redrawedContent += `${parsedLine + this.amount} `
+			if (Number.isInteger(parsedLine)) {
+				redrawedContent += `${parsedLine + this.amount}\n`
+			}
 		})
 
 		return {
