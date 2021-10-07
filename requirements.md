@@ -34,5 +34,5 @@ Sobre o arquivo de Imagem “EntradaBinario.pgm” (8 bits em escala de cinza, 0
 
 Caros, nesta atividade teremos intenção de introduzir conceitos das imagens coloridas no formato RGB (Red, Green, Blue).
 
-- a) Conforme apostila de formatos de imagens, onde apresenta-se o exemplo de uma imagem em formato PPM, abaixo: (copiar do classroom)
+- ✅ a) Conforme apostila de formatos de imagens, onde apresenta-se o exemplo de uma imagem em formato PPM, abaixo: (copiar do classroom)
 - b) Aplicar cálculo da média entre os valores RGB dos arquivos "Fig4.ppm e Fig1.ppm” tipo P3 e gerar imagem saída escala de cinza (P2) para cada pixel da imagem.
