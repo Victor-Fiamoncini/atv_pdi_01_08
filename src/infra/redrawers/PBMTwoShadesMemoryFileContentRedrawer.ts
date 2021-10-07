@@ -5,9 +5,9 @@ import FileContentRedrawer from '@app/contracts/FileContentRedrawer'
 import InvalidFileEncodingError from '@infra/errors/InvalidFileEncodingError'
 
 class PBMTwoShadesMemoryFileContentRedrawer implements FileContentRedrawer {
-	private readonly threshold = 128
-	private readonly firstPixel = 1
-	private readonly secondPixel = 0
+	private readonly threshold: number = 128
+	private readonly firstPixel: number = 1
+	private readonly secondPixel: number = 0
 
 	private redrawAsciiType(file: File) {
 		const lines = file.content.split('\n')

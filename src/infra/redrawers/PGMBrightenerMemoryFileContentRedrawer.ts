@@ -4,36 +4,18 @@ import FileContentRedrawer from '@app/contracts/FileContentRedrawer'
 
 import InvalidFileEncodingError from '@infra/errors/InvalidFileEncodingError'
 
-class PGMTwoShadesMemoryFileContentRedrawer implements FileContentRedrawer {
-	private readonly threshold: number = 128
-	private readonly bitsQuantity: number = 5
+class PGMBrightenerMemoryFileContentRedrawer implements FileContentRedrawer {
+	private readonly amount: number = 20
 
 	private redrawAsciiType(file: File) {
 		const lines = file.content.split('\n')
 
 		let redrawedContent = ''
-		let firstPixel: number, secondPixel: number
-
-		if (this.bitsQuantity === 5) {
-			firstPixel = 31
-			secondPixel = 0
-		}
-
-		if (this.bitsQuantity === 8) {
-			firstPixel = 255
-			secondPixel = 0
-		}
 
 		lines.forEach(line => {
 			const parsedLine = Number(line)
 
-			if (Number.isInteger(parsedLine)) {
-				if (parsedLine > this.threshold) {
-					redrawedContent += firstPixel + ' '
-				} else {
-					redrawedContent += secondPixel + ' '
-				}
-			}
+			redrawedContent += `${parsedLine + this.amount} `
 		})
 
 		return {
@@ -56,4 +38,4 @@ class PGMTwoShadesMemoryFileContentRedrawer implements FileContentRedrawer {
 	}
 }
 
-export default PGMTwoShadesMemoryFileContentRedrawer
+export default PGMBrightenerMemoryFileContentRedrawer

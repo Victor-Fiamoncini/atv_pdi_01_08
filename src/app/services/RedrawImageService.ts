@@ -28,10 +28,7 @@ class RedrawImageService implements RedrawImageUseCase {
 				path: this.inputFilePath,
 			})
 
-			if (
-				typeof fileContent.header !== 'string' ||
-				typeof fileContent.content !== 'string'
-			) {
+			if (!fileContent) {
 				throw new ReadFileError()
 			}
 
@@ -43,10 +40,7 @@ class RedrawImageService implements RedrawImageUseCase {
 				},
 			})
 
-			if (
-				typeof redrawedContent.header !== 'string' ||
-				typeof redrawedContent.content !== 'string'
-			) {
+			if (!redrawedContent) {
 				throw new RedrawFileError()
 			}
 
