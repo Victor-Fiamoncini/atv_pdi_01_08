@@ -5,7 +5,7 @@ import FileContentDrawer from '@app/contracts/FileContentDrawer'
 import InvalidFileEncodingError from '@infra/errors/InvalidFileEncodingError'
 
 class PBMMemoryFileContentDrawer implements FileContentDrawer {
-	private readonly colorHexCodes = ['000000', 'FFFFFF']
+	private readonly colorHexCodes: string[] = ['000000', 'FFFFFF']
 
 	private drawAsciiType(name: string, resolution: Resolution) {
 		const type = 'P1\n'

@@ -5,8 +5,6 @@ export type Resolution = {
 
 export type Encoding = 'ascii' | 'binary'
 
-export type Extension = 'pbm' | 'pgm'
-
 export type File = {
 	header: string
 	content: string

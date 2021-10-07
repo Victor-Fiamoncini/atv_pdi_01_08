@@ -1,4 +1,4 @@
-import { Encoding, Extension } from '@shared/types'
+import { Encoding } from '@shared/types'
 
 namespace RedrawImageUseCase {
 	export type Params = {

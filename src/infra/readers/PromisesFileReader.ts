@@ -3,7 +3,7 @@ import { promises } from 'fs'
 import FileReader from '@app/contracts/FileReader'
 
 class PromisesFileReader implements FileReader {
-	private readonly parser = 'byte'
+	private readonly parser: string = 'byte'
 
 	async execute({ encoding, path, name }: FileReader.Params) {
 		const file = await promises.readFile(`${path}/${name}`, { encoding })
