@@ -11,11 +11,11 @@ async function main() {
 			outputFileName: 'Fig1ComMedia.pgm',
 		})
 
-		// await averagingRGBRedrawImageUseCase.run({
-		// 	encoding: 'ascii',
-		// 	inputFileName: 'Fig4.ppm',
-		// 	outputFileName: 'Fig4ComMedia.pgm',
-		// })
+		await averagingRGBRedrawImageUseCase.run({
+			encoding: 'ascii',
+			inputFileName: 'Fig4.ppm',
+			outputFileName: 'Fig4ComMedia.pgm',
+		})
 
 		console.log('Gerou os arquivos Fig1ComMedia.pgm e Fig4ComMedia.pgm em /tmp')
 	} catch (err) {

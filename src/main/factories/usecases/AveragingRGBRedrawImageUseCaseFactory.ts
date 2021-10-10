@@ -1,7 +1,7 @@
 import RedrawImageService from '@app/services/RedrawImageService'
 
 import PromisesFileReader from '@infra/readers/PromisesFileReader'
-import PGMAveragingRGBMemoryFileContentRedrawer from '@infra/redrawers/PGMAveragingRGBMemoryFileContentRedrawer'
+import PGMTwoShadesMemoryFileContentRedrawer from '@infra/redrawers/PGMTwoShadesMemoryFileContentRedrawer'
 import StreamFileWriter from '@infra/writers/StreamFileWriter'
 
 import RedrawImageUseCaseAbstractFactory from '@main/abstract_factories/usecases/RedrawImageUseCaseAbstractFactory'
@@ -10,7 +10,7 @@ import Env from '@main/config/Env'
 // prettier-ignore
 class AveragingRGBRedrawImageUseCaseFactory implements RedrawImageUseCaseAbstractFactory {
 	make() {
-		const fileContentRedrawer = new PGMAveragingRGBMemoryFileContentRedrawer()
+		const fileContentRedrawer = new PGMTwoShadesMemoryFileContentRedrawer()
 		const fileReader = new PromisesFileReader()
 		const fileWriter = new StreamFileWriter()
 

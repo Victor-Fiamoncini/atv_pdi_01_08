@@ -6,7 +6,7 @@ import InvalidFileEncodingError from '@infra/errors/InvalidFileEncodingError'
 
 class PGMTwoShadesMemoryFileContentRedrawer implements FileContentRedrawer {
 	private readonly threshold: number = 128
-	private readonly bitsQuantity: number = 5
+	private readonly bitsQuantity: number = 8
 
 	private redrawAsciiType(file: File) {
 		const lines = file.content.split('\n')
