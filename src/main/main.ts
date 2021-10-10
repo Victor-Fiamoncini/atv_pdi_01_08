@@ -1,29 +1,23 @@
-import BrightenerRedrawImageUseCaseFactory from '@main/factories/usecases/BrightenerRedrawImageUseCaseFactory'
-import TwoShadesRedrawImageUseCaseFactory from '@main/factories/usecases/TwoShadesRedrawImageUseCaseFactory'
+import AveragingRGBRedrawImageUseCaseFactory from '@main/factories/usecases/AveragingRGBRedrawImageUseCaseFactory'
 
 async function main() {
-	const twoShadesRedrawImageUseCase =
-		new TwoShadesRedrawImageUseCaseFactory().make()
-
-	const brightenerRedrawImageUseCase =
-		new BrightenerRedrawImageUseCaseFactory().make()
+	const averagingRGBRedrawImageUseCase =
+		new AveragingRGBRedrawImageUseCaseFactory().make()
 
 	try {
-		await twoShadesRedrawImageUseCase.run({
+		await averagingRGBRedrawImageUseCase.run({
 			encoding: 'ascii',
-			inputFileName: 'entradaBinario.pgm',
-			outputFileName: 'entradaBinarioRedesenhado.pgm',
+			inputFileName: 'Fig1.ppm',
+			outputFileName: 'Fig1ComMedia.pgm',
 		})
 
-		await brightenerRedrawImageUseCase.run({
-			encoding: 'ascii',
-			inputFileName: 'entradaBinarioRedesenhado.pgm',
-			outputFileName: 'entradaBinarioClereado.pgm',
-		})
+		// await averagingRGBRedrawImageUseCase.run({
+		// 	encoding: 'ascii',
+		// 	inputFileName: 'Fig4.ppm',
+		// 	outputFileName: 'Fig4ComMedia.pgm',
+		// })
 
-		console.log(
-			'Gerou os arquivos entradaBinarioRedesenhado.pgm e entradaBinarioClereado.pgm em /tmp'
-		)
+		console.log('Gerou os arquivos Fig1ComMedia.pgm e Fig4ComMedia.pgm em /tmp')
 	} catch (err) {
 		console.error(err)
 	}
