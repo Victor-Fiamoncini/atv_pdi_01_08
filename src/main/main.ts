@@ -8,16 +8,18 @@ async function main() {
 		await averagingRGBRedrawImageUseCase.run({
 			encoding: 'ascii',
 			inputFileName: 'Fig1.ppm',
-			outputFileName: 'Fig1ComMedia.pgm',
+			outputFileName: 'Fig1ComMediaPorPixel.pgm',
 		})
 
 		await averagingRGBRedrawImageUseCase.run({
 			encoding: 'ascii',
 			inputFileName: 'Fig4.ppm',
-			outputFileName: 'Fig4ComMedia.pgm',
+			outputFileName: 'Fig4ComMediaPorPixel.pgm',
 		})
 
-		console.log('Gerou os arquivos Fig1ComMedia.pgm e Fig4ComMedia.pgm em /tmp')
+		console.log(
+			'Gerou os arquivos Fig1ComMediaPorPixel.pgm e Fig4ComMediaPorPixel.pgm em /tmp'
+		)
 	} catch (err) {
 		console.error(err)
 	}

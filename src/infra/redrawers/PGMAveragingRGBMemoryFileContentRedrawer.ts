@@ -5,45 +5,28 @@ import FileContentRedrawer from '@app/contracts/FileContentRedrawer'
 import InvalidFileEncodingError from '@infra/errors/InvalidFileEncodingError'
 
 class PGMAveragingRGBMemoryFileContentRedrawer implements FileContentRedrawer {
-	private readonly threshold: number = 128
-
 	private redrawAsciiType(file: File) {
 		let redrawedHeader = file.header
+		let redrawedContent = ''
+
 		redrawedHeader = redrawedHeader.replace('P3', 'P2')
 
-		const lines = file.content.split('\n')
-		let redrawedContent = ''
-		let totalPixelsCount = 0
+		const filterredContent = file.content
+			.split('\n')
+			.filter(line => Number.isInteger(Number(line)))
 
-		for (let index = 0; index < 100; index++) {
-			console.log(lines[index])
+		for (let i = 1; i < filterredContent.length - 2; i++) {
+			const rgbSum =
+				Number(filterredContent[i]) +
+				Number(filterredContent[i + 1]) +
+				Number(filterredContent[i + 2])
+
+			const lineAverage = String(rgbSum / 3)
+
+			redrawedContent += `${parseInt(lineAverage)}\n`
 		}
 
-		const totalByteAmount = lines.reduce((acc, line) => {
-			const parsedLine = Number(line)
-
-			if (Number.isInteger(parsedLine)) {
-				totalPixelsCount++
-
-				return acc + parsedLine
-			}
-
-			return 0
-		}, 0)
-
-		const averagePixelValue = totalByteAmount / totalPixelsCount
-
-		lines.forEach(line => {
-			const parsedLine = Number(line)
-
-			if (Number.isInteger(parsedLine)) {
-				if (parsedLine <= this.threshold) {
-					redrawedContent += `${parseInt(averagePixelValue.toString())}\n`
-				} else {
-					redrawedContent += '255\n'
-				}
-			}
-		})
+		redrawedContent = `255\n${redrawedContent}`
 
 		return {
 			redrawedHeader,

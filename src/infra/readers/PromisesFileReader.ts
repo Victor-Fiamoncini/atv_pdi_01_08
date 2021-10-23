@@ -12,27 +12,27 @@ class PromisesFileReader implements FileReader {
 		let contentChunks = ''
 
 		if (this.parser === 'breakLine') {
-			const lines = file.toString().split('\n')
-
-			lines.forEach(line => {
-				if (Number.isInteger(Number(line))) {
-					contentChunks += `${line}\n`
-				} else {
-					headerChunks += `${line}\n`
-				}
-			})
+			String(file)
+				.split('\n')
+				.forEach(line => {
+					if (Number.isInteger(Number(line))) {
+						contentChunks += `${line}\n`
+					} else {
+						headerChunks += `${line}\n`
+					}
+				})
 		}
 
 		if (this.parser === 'space') {
-			const lines = file.toString().split(' ')
-
-			lines.forEach(line => {
-				if (Number.isInteger(Number(line))) {
-					contentChunks += `${line}\n`
-				} else {
-					headerChunks += `${line}\n`
-				}
-			})
+			String(file)
+				.split(' ')
+				.forEach(line => {
+					if (Number.isInteger(Number(line))) {
+						contentChunks += `${line}\n`
+					} else {
+						headerChunks += `${line}\n`
+					}
+				})
 		}
 
 		return {
