@@ -5,6 +5,8 @@ export type Resolution = {
 
 export type Encoding = 'ascii' | 'binary'
 
+export type Color = 'R' | 'G' | 'B'
+
 export type File = {
 	header: string
 	content: string

@@ -48,6 +48,6 @@ Sobre o arquivo "Fig4.ppm e Fig1.ppm” imagemde saída deve:
 
 Sobre as imagens "Fig4.ppm e Fig1.ppm”, efetuar separação de cores entre os valores RGB (mínimo) na imagem Original (P3).
 
-- a) Para R – Manter seus valores e zerar G e B
-- b) Para G – Manter seus valores e zerar R e B
-- c) Para B – Manter seus valores e zerar R e G
+- ✅ a) Para R – Manter seus valores e zerar G e B
+- ✅ b) Para G – Manter seus valores e zerar R e B
+- ✅ c) Para B – Manter seus valores e zerar R e G

@@ -1,25 +1,22 @@
-import AveragingRGBRedrawImageUseCaseFactory from '@main/factories/usecases/AveragingRGBRedrawImageUseCaseFactory'
+import SeparateColorUseCaseFactory from '@main/factories/usecases/SeparateColorUseCaseFactory'
 
 async function main() {
-	const averagingRGBRedrawImageUseCase =
-		new AveragingRGBRedrawImageUseCaseFactory().make()
+	const separateColorUseCase = new SeparateColorUseCaseFactory().make()
 
 	try {
-		await averagingRGBRedrawImageUseCase.run({
+		await separateColorUseCase.run({
 			encoding: 'ascii',
 			inputFileName: 'Fig1.ppm',
-			outputFileName: 'Fig1ComMediaPorPixel.pgm',
+			outputFileName: 'Fig1Sem.ppm',
 		})
 
-		await averagingRGBRedrawImageUseCase.run({
+		await separateColorUseCase.run({
 			encoding: 'ascii',
 			inputFileName: 'Fig4.ppm',
-			outputFileName: 'Fig4ComMediaPorPixel.pgm',
+			outputFileName: 'Fig4Sem.ppm',
 		})
 
-		console.log(
-			'Gerou os arquivos Fig1ComMediaPorPixel.pgm e Fig4ComMediaPorPixel.pgm em /tmp'
-		)
+		console.log('Gerou os arquivos de saída em /tmp')
 	} catch (err) {
 		console.error(err)
 	}
