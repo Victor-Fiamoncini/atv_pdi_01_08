@@ -1,6 +1,6 @@
 # PDI Image Generator - Victor Fiamoncini
 
-Atividades para a disciplina PROCESSAMENTO DIGITAL DE IMAGENS (2021.2)
+Atividades para a disciplina PROCESSAMENTO DIGITAL DE IMAGENS (2021.2) - Atividades (1 a 8)
 
 ## Requisitos para iniciar
 
